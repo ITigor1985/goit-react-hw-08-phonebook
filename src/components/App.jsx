@@ -5,6 +5,8 @@ import CreateContact from './CreateContact/CreateContact';
 import { GlobalStyle } from '../GlobalStyled/GlobalStyled.styled';
 import { Container } from './App.styled';
 import Contact from './Contact';
+import RegisterView from 'pages/RegisterView';
+import LoginView from 'pages/LoginView';
 
 export const App = () => {
   return (
@@ -23,6 +25,8 @@ export const App = () => {
           <Route path="/contacts/:id">
             <Contact />
           </Route>
+          <Route path="/register" component={RegisterView} />
+          <Route path="/login" component={LoginView} />
         </Switch>
       </Container>
       <GlobalStyle />
