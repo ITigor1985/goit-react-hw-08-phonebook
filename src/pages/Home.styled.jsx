@@ -9,7 +9,7 @@ export const Icon = styled.img`
   z-index: 2;
 `;
 
-export const Contayner = styled.div`
+export const Container = styled.div`
   background: url(${icons});
   background-size: contain;
   background-repeat: no-repeat;
