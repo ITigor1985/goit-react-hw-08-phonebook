@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import icons from '../images/icons.png';
 
 export const Icon = styled.img`
   position: absolute;
@@ -10,9 +9,6 @@ export const Icon = styled.img`
 `;
 
 export const Container = styled.div`
-  background: url(${icons});
-  background-size: contain;
-  background-repeat: no-repeat;
   margin: 0 auto;
   background-position: 50%;
   width: 300px;
