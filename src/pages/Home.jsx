@@ -10,6 +10,8 @@ export const HomePage = () => {
         <Link to="/contacts">
           <Icon src={icon} width="40px" height="40px" alt="icon contacts" />
         </Link>
+        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
       </Contayner>
     </>
   );

@@ -19,8 +19,8 @@ export const ContactList = ({ contacts }) => {
 
   return (
     <ListContacts>
-      {filtredContacts.map(({ id, name, phone }) => (
-        <ContactListItem key={id} id={id} name={name} phone={phone} />
+      {filtredContacts.map(({ id, name, number }) => (
+        <ContactListItem key={id} id={id} name={name} number={number} />
       ))}
     </ListContacts>
   );
@@ -31,7 +31,7 @@ ContactList.propTypes = {
     propTypes.shape({
       name: propTypes.string.isRequired,
       id: propTypes.string.isRequired,
-      phone: propTypes.string.isRequired,
+      number: propTypes.string.isRequired,
     })
   ).isRequired,
 };

@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 
 const initialState = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const positionToast = () => {
@@ -34,7 +34,7 @@ const positionToast = () => {
 export const NewContactForm = () => {
   const [createContact, { isLoading }] = useCreateContactMutation();
   const { data: contacts } = useFetchContactsQuery();
-  const handleSubmit = ({ name, phone }, { resetForm }) => {
+  const handleSubmit = ({ name, number }, { resetForm }) => {
     const isNameInContacts = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
@@ -44,7 +44,7 @@ export const NewContactForm = () => {
       return;
     }
 
-    createContact({ name, phone });
+    createContact({ name, number });
 
     resetForm();
     toast.success('Contacts create!', positionToast());
@@ -72,7 +72,7 @@ export const NewContactForm = () => {
             <Field
               as={FormInput}
               type="tel"
-              name="phone"
+              name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
