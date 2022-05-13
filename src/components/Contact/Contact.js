@@ -17,7 +17,7 @@ const Contact = () => {
     <>
       <FullContact>
         <li>{getContact.name}</li>
-        <li>{getContact.phone}</li>
+        <li>{getContact.number}</li>
       </FullContact>
       <BtnDeleteContact onClick={() => deleteContact(id)} disabled={isDeleting}>
         {isDeleting && <Redirect to="/contacts" />}
