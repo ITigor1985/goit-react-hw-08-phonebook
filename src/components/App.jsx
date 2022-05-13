@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
 import CreateContact from './CreateContact/CreateContact';
@@ -10,6 +10,8 @@ import LoginView from 'pages/LoginView';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authOperations } from 'redux/auth';
+import PublicRoute from 'route/PublicRoute';
+import PrivateRoute from 'route/PrivatRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,22 +22,59 @@ export const App = () => {
   return (
     <>
       <Container>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/contacts" exact>
-            <ContactsPage />
-          </Route>
-          <Route path="/contacts/create">
-            <CreateContact />
-          </Route>
-          <Route path="/contacts/:id">
-            <Contact />
-          </Route>
-          <Route path="/register" component={RegisterView} />
-          <Route path="/login" component={LoginView} />
-        </Switch>
+        <Routes>
+          <Route
+            exect
+            path="/"
+            element={
+              <PublicRoute>
+                <HomePage />
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/contacts/create"
+            element={
+              <PrivateRoute>
+                <CreateContact />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/contacts/:id"
+            element={
+              <PrivateRoute>
+                <Contact />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegisterView />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginView />
+              </PublicRoute>
+            }
+          />
+        </Routes>
       </Container>
       <GlobalStyle />
     </>
