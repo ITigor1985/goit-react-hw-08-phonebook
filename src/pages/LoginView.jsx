@@ -40,7 +40,7 @@ export default function LoginView() {
       <Container>
         <form onSubmit={handleSubmit} autoComplete="off">
           <label style={styles.label}>
-            Почта
+            Email
             <input
               type="email"
               name="email"
@@ -50,7 +50,7 @@ export default function LoginView() {
           </label>
 
           <label style={styles.label}>
-            Пароль
+            Password
             <input
               type="password"
               name="password"
@@ -59,7 +59,7 @@ export default function LoginView() {
             />
           </label>
 
-          <button type="submit">Войти</button>
+          <button type="submit">LogIn</button>
         </form>
       </Container>
     </>

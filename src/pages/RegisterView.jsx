@@ -44,7 +44,7 @@ export default function RegisterView() {
       <Container>
         <form onSubmit={handleSubmit} autoComplete="off">
           <label style={styles.label}>
-            Имя
+            Name
             <input
               type="text"
               name="name"
@@ -54,7 +54,7 @@ export default function RegisterView() {
           </label>
 
           <label style={styles.label}>
-            Почта
+            Email
             <input
               type="email"
               name="email"
@@ -64,7 +64,7 @@ export default function RegisterView() {
           </label>
 
           <label style={styles.label}>
-            Пароль
+            Password
             <input
               type="password"
               name="password"
@@ -73,7 +73,7 @@ export default function RegisterView() {
             />
           </label>
 
-          <button type="submit">Зарегистрироваться</button>
+          <button type="submit">Register</button>
         </form>
       </Container>
     </>
