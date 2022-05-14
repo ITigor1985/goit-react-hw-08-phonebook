@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { authOperations } from 'redux/auth';
 import PublicRoute from 'route/PublicRoute';
 import PrivateRoute from 'route/PrivatRoute';
+import AppBar from './AppBar';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export const App = () => {
   return (
     <>
       <Container>
+        <AppBar />
         <Routes>
           <Route
             exect
