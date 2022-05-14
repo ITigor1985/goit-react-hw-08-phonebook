@@ -2,7 +2,7 @@ import { useFetchContactsQuery } from '../redux/contactsSlice/contactSlice';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Spinner } from 'components/Spinner/Spinner';
 import Filter from 'components/Filter';
-import { Container } from './Contacts.styled';
+import { Container, ContainerContacts } from './Contacts.styled';
 import { Link } from 'react-router-dom';
 
 export const ContactsPage = () => {
@@ -16,24 +16,26 @@ export const ContactsPage = () => {
 
   return (
     <>
-      <Filter />
       <Container>
-        {/* <h1>Contacts</h1> */}
-        {isFetching && <Spinner />}
-        {/* {totalContacts()} */}
-        {contacts && <ContactList contacts={contacts} />}
+        <Filter />
+        <ContainerContacts>
+          {/* <h1>Contacts</h1> */}
+          {isFetching && <Spinner />}
+          {/* {totalContacts()} */}
+          {contacts && <ContactList contacts={contacts} />}
+        </ContainerContacts>
+        <button
+          type="button"
+          style={{
+            width: '98%',
+            margin: '0 auto',
+            position: 'relative',
+            top: '25px',
+          }}
+        >
+          <Link to="/contacts/create">Create contacts</Link>
+        </button>
       </Container>
-      <button
-        type="button"
-        style={{
-          width: '200px',
-          margin: '0 auto',
-          position: 'relative',
-          top: '25px',
-        }}
-      >
-        <Link to="/contacts/create">Create contacts</Link>
-      </button>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filterSlice/fiterSlice';
-import { Container } from './Filter.styled';
+import { Container, InputeFilter } from './Filter.styled';
 function Filter() {
   const dispatch = useDispatch();
 
@@ -9,15 +9,13 @@ function Filter() {
   };
   return (
     <Container>
-      <div>
-        <input
-          autoComplete="off"
-          placeholder="Find contacts by name"
-          name="filter"
-          type="text"
-          onChange={handleChange}
-        />
-      </div>
+      <InputeFilter
+        autoComplete="off"
+        placeholder="Find contacts by name"
+        name="filter"
+        type="text"
+        onChange={handleChange}
+      />
     </Container>
   );
 }

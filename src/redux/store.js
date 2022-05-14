@@ -35,6 +35,7 @@ export const store = configureStore({
     }),
     contactApi.middleware,
   ],
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 setupListeners(store.dispatch);

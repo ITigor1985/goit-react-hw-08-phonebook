@@ -17,13 +17,8 @@ export const contactApi = createApi({
   endpoints: builder => ({
     fetchContacts: builder.query({
       query: () => '/contacts',
-      providesTags: result =>
-        result
-          ? [
-              ...result.map(({ id }) => ({ type: 'Contacts', id })),
-              { type: 'Contacts', id: 'LIST' },
-            ]
-          : [{ type: 'Contacts', id: 'LIST' }],
+      method: 'GET',
+      providesTags: ['Contacts'],
     }),
     deleteContact: builder.mutation({
       query(id) {

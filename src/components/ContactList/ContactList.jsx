@@ -3,9 +3,18 @@ import { ContactListItem } from '../ContactListItem/ContactListItem';
 import { selectFilter } from 'redux/filterSlice/fiterSlice';
 import { useSelector } from 'react-redux';
 import { ListContacts } from './ContactList.styled';
+import { authSelectors } from 'redux/auth';
+import { useEffect } from 'react';
+import { useFetchContactsQuery } from 'redux/contactsSlice/contactSlice';
 
 export const ContactList = ({ contacts }) => {
   const filter = useSelector(selectFilter);
+  const { refetch } = useFetchContactsQuery();
+  const token = useSelector(authSelectors.getToken);
+
+  useEffect(() => {
+    refetch();
+  }, [token, refetch]);
 
   const getFiltredContacts = () => {
     return filter
