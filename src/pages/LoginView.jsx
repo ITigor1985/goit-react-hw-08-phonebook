@@ -46,6 +46,7 @@ export default function LoginView() {
               name="email"
               value={email}
               onChange={handleChange}
+              required
             />
           </label>
 
@@ -56,6 +57,7 @@ export default function LoginView() {
               name="password"
               value={password}
               onChange={handleChange}
+              required
             />
           </label>
 

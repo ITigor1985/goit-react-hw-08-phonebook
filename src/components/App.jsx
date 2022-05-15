@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ContactsPage } from 'pages/Contacts';
 import { HomePage } from 'pages/Home';
 import CreateContact from './CreateContact/CreateContact';
@@ -82,6 +82,7 @@ export const App = () => {
                   </PublicRoute>
                 }
               />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </>
         )}
