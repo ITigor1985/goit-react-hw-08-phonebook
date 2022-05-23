@@ -1,14 +1,26 @@
+import {
+  FormInput,
+  InputLabel,
+} from 'components/NewContactForm/NewContactForm.styled';
+import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
 import { Container, Title } from './RegisterView.styled';
+import Button from 'components/Buttons';
 
-const styles = {
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
+// const styles = {
+//   label: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     marginBottom: 15,
+//   },
+// };
+
+const initialState = {
+  name: '',
+  email: '',
+  password: '',
 };
 
 export default function RegisterView() {
@@ -30,8 +42,7 @@ export default function RegisterView() {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = () => {
     dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
@@ -42,7 +53,41 @@ export default function RegisterView() {
     <>
       <Title>Registration page</Title>
       <Container>
-        <form onSubmit={handleSubmit} autoComplete="off">
+        <Formik initialValues={initialState} onSubmit={handleSubmit}>
+          <Form autoComplete="off">
+            <InputLabel htmlFor="name">Name</InputLabel>
+            <Field
+              as={FormInput}
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              required
+            />
+            <InputLabel htmlFor="email">Email</InputLabel>
+            <Field
+              as={FormInput}
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              required
+            />
+
+            <InputLabel htmlFor="password">Password</InputLabel>
+            <Field
+              as={FormInput}
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              required
+            />
+
+            <Button type="submit" text="Register" />
+          </Form>
+        </Formik>
+        {/* <form onSubmit={handleSubmit} autoComplete="off">
           <label style={styles.label}>
             Name
             <input
@@ -77,7 +122,7 @@ export default function RegisterView() {
           </label>
 
           <button type="submit">Register</button>
-        </form>
+        </form> */}
       </Container>
     </>
   );

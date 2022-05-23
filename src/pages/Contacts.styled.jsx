@@ -13,3 +13,11 @@ export const ContainerContacts = styled.div`
   height: 355px;
   overflow: auto;
 `;
+export const Text = styled.p`
+  display: block;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 600;
+`;

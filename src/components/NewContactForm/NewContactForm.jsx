@@ -2,7 +2,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import { IconContext } from 'react-icons';
 import { ImHome, ImPhone } from 'react-icons/im';
 import 'react-toastify/dist/ReactToastify.css';
-
 import {
   useCreateContactMutation,
   useFetchContactsQuery,

@@ -13,3 +13,8 @@ export const Container = styled.div`
   width: 300px;
   height: 400px;
 `;
+
+export const NameApp = styled.h1`
+  color: blue;
+  font-size: 26px;
+`;

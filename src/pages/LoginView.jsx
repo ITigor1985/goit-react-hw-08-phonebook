@@ -1,14 +1,17 @@
+import {
+  FormInput,
+  InputLabel,
+} from 'components/NewContactForm/NewContactForm.styled';
+import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
 import { Container, Title } from './LoginView.styled';
+import Button from 'components/Buttons';
 
-const styles = {
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
+const initialState = {
+  email: '',
+  password: '',
 };
 
 export default function LoginView() {
@@ -27,8 +30,7 @@ export default function LoginView() {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = () => {
     dispatch(authOperations.logIn({ email, password }));
     setEmail('');
     setPassword('');
@@ -36,33 +38,33 @@ export default function LoginView() {
 
   return (
     <>
-      <Title>Page login</Title>
+      <Title>Login page</Title>
       <Container>
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <label style={styles.label}>
-            Email
-            <input
+        <Formik initialValues={initialState} onSubmit={handleSubmit}>
+          <Form autoComplete="off">
+            <InputLabel htmlFor="email">Email</InputLabel>
+            <Field
+              as={FormInput}
               type="email"
               name="email"
               value={email}
               onChange={handleChange}
               required
             />
-          </label>
 
-          <label style={styles.label}>
-            Password
-            <input
+            <InputLabel htmlFor="password">Password</InputLabel>
+            <Field
+              as={FormInput}
               type="password"
               name="password"
               value={password}
               onChange={handleChange}
               required
             />
-          </label>
 
-          <button type="submit">LogIn</button>
-        </form>
+            <Button type="submit" text="Login" />
+          </Form>
+        </Formik>
       </Container>
     </>
   );

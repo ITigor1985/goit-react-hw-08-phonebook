@@ -18,6 +18,8 @@ export const InputLabel = styled.label`
 `;
 export const Title = styled.h1`
   text-align: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
 `;
 export const Container = styled.div`
   width: 265px;
@@ -29,6 +31,7 @@ export const Container = styled.div`
 export const ListBtn = styled.ul`
   display: flex;
   justify-content: center;
+  margin-top: -25px;
 `;
 export const BtnGoHome = styled.button`
   width: 40px;
