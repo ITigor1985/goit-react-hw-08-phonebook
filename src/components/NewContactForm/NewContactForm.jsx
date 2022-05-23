@@ -1,6 +1,6 @@
 import { toast, ToastContainer } from 'react-toastify';
 import { IconContext } from 'react-icons';
-import { ImHome, ImPhone } from 'react-icons/im';
+import { ImPhone } from 'react-icons/im';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   useCreateContactMutation,
@@ -14,7 +14,6 @@ import {
   Title,
   Container,
   ListBtn,
-  BtnGoHome,
   BtnGoContact,
 } from './NewContactForm.styled';
 import { Spinner } from 'components/Spinner/Spinner';
@@ -82,15 +81,6 @@ export const NewContactForm = () => {
         </Formik>
       </Container>
       <ListBtn>
-        <li>
-          <IconContext.Provider value={{ color: 'blue', size: '25px' }}>
-            <BtnGoHome type="button">
-              <Link to="/">
-                <ImHome />
-              </Link>
-            </BtnGoHome>
-          </IconContext.Provider>
-        </li>
         <li>
           <IconContext.Provider value={{ color: 'blue', size: '25px' }}>
             <BtnGoContact type="button">
