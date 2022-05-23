@@ -5,7 +5,7 @@ const AuthNav = () => {
     <LinkList>
       <LinkListItem>
         <Link to="/register" exact="true">
-          SignIn
+          SignUp
         </Link>
       </LinkListItem>
       <LinkListItem>
